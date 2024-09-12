@@ -45,15 +45,15 @@ This Terraform module provisions an AWS Load Balancer target group along with li
 
 ```hcl
 module "lb_target_group" {
-  source                = "./modules/lb-target-group"
-  project               = "my-project"
-  environment           = "production"
-  service               = "api"
-  port                  = "80"
-  vpc_id                = "vpc-12345678"
+  source                  = "https://github.com/opstimus/terraform-aws-target-group?ref=v<RELEASE>"
+  project                 = "my-project"
+  environment             = "production"
+  service                 = "api"
+  port                    = "80"
+  vpc_id                  = "vpc-12345678"
   application_status_code = 200
-  listener_arn          = "arn:aws:elasticloadbalancing:region:account-id:listener/app/alb-name/arn-id"
-  priority              = 10
-  host_headers          = ["api.domain.com"]
+  listener_arn            = "arn:aws:elasticloadbalancing:region:account-id:listener/app/alb-name/arn-id"
+  priority                = 10
+  host_headers            = ["api.domain.com"]
 }
 ```
