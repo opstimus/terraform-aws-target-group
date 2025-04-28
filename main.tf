@@ -27,4 +27,13 @@ resource "aws_lb_listener_rule" "main" {
       values = var.host_headers
     }
   }
+
+  dynamic "condition" {
+    for_each = length(var.path_patterns) > 0 ? [1] : []
+    content {
+      path_pattern {
+        values = var.path_patterns
+      }
+    }
+  }
 }

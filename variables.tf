@@ -44,3 +44,9 @@ variable "host_headers" {
   type        = list(any)
   description = "Service URLs | i.e api.domain.com"
 }
+
+variable "path_patterns" {
+  type        = list(any)
+  description = "Path pattern | i.e /api/*"
+  default     = []
+}
