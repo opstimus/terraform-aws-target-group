@@ -8,6 +8,10 @@ resource "aws_lb_target_group" "main" {
     matcher = var.application_status_code
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   tags = {
     "name" = "${var.project}-${var.environment}-${var.service}"
   }
