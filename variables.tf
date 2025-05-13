@@ -34,23 +34,6 @@ variable "listener_arn" {
   description = "Listerner ARN from ALB"
 }
 
-# variable "priority" {
-#   type        = number
-#   description = "Listerner rule priority number"
-#   default     = 100
-# }
-
-# variable "host_headers" {
-#   type        = list(any)
-#   description = "Service URLs | i.e api.domain.com"
-# }
-
-# variable "path_patterns" {
-#   type        = list(any)
-#   description = "Path pattern | i.e /api/*"
-#   default     = []
-# }
-
 variable "listener_rules" {
   type = map(object({
     priority      = optional(number, 100)
