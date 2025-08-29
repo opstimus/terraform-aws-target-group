@@ -44,3 +44,9 @@ variable "host_headers" {
   type        = list(any)
   description = "Service URLs | i.e api.domain.com"
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "A map of tags to assign to the resource."
+  default     = {}
+}
