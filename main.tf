@@ -12,16 +12,13 @@ resource "aws_lb_target_group" "main" {
   lifecycle {
     create_before_destroy = true
   }
-
-  tags = {
-    "name" = "${var.project}-${var.environment}-${var.service}"
-  }
 }
 
 resource "aws_lb_listener_rule" "main" {
   for_each     = var.listener_rules
   listener_arn = var.listener_arn
   priority     = each.value.priority
+  tags         = var.tags
 
   action {
     type             = "forward"
