@@ -9,12 +9,19 @@ resource "aws_lb_target_group" "main" {
     matcher = var.application_status_code
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    "name" = "${var.project}-${var.environment}-${var.service}"
+  }
 }
 
 resource "aws_lb_listener_rule" "main" {
+  for_each     = var.listener_rules
   listener_arn = var.listener_arn
-  priority     = var.priority
-  tags         = var.tags
+  priority     = each.value.priority
 
   action {
     type             = "forward"
@@ -23,7 +30,16 @@ resource "aws_lb_listener_rule" "main" {
 
   condition {
     host_header {
-      values = var.host_headers
+      values = each.value.host_headers
+    }
+  }
+
+  dynamic "condition" {
+    for_each = length(each.value.path_patterns) > 0 ? [1] : []
+    content {
+      path_pattern {
+        values = each.value.path_patterns
+      }
     }
   }
 }
