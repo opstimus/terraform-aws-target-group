@@ -9,14 +9,14 @@ This Terraform module provisions an AWS Load Balancer target group along with li
 | Name      | Version  |
 |-----------|----------|
 | terraform | >= 1.3.0 |
-| aws       | >= 4.0   |
+| aws       | >= 6.0   |
 | external | >= 2.2.0 |
 
 ## Providers
 
 | Name | Version  |
 |------|----------|
-| aws  | >= 4.0   |
+| aws  | >= 6.0   |
 | external | >= 2.2.0 |
 
 ## Inputs
