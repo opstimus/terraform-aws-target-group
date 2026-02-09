@@ -10,14 +10,12 @@ This Terraform module provisions an AWS Load Balancer target group along with li
 |-----------|----------|
 | terraform | >= 1.3.0 |
 | aws       | >= 6.0   |
-| external | >= 2.2.0 |
 
 ## Providers
 
 | Name | Version  |
 |------|----------|
 | aws  | >= 6.0   |
-| external | >= 2.2.0 |
 
 ## Inputs
 
@@ -35,6 +33,7 @@ This Terraform module provisions an AWS Load Balancer target group along with li
 | priority               | Listener rule priority number            | `number`    | 100     |    no    |
 | host_headers           | Service URLs (i.e. api.domain.com)       | `list(any)` | -       |   yes    |
 | path_patterns          | Path (i.e. /api/user/*)                  | `list(any)` | -       |    no    |
+| tags                   | tags                                     | `map(string)` | -       |    no    |
 
 ## Outputs
 
