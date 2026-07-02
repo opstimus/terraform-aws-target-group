@@ -1,3 +1,12 @@
+> ⚠️ **Moved to the monorepo.**
+> This module now lives in [`opstimus/terraform-modules`](https://github.com/opstimus/terraform-modules) at `modules/aws-target-group`.
+>
+> ```hcl
+> source = "git::https://github.com/opstimus/terraform-modules.git//modules/aws-target-group?ref=aws-target-group/v2.0.0"
+> ```
+>
+> This repository remains for existing consumers; new development happens in the monorepo.
+
 # Load Balancer Target Group Module
 
 ## Description
